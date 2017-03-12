@@ -1,0 +1,13 @@
+#!/bin/bash
+
+CWD=$(pwd)
+
+for GIT in $(find . -maxdepth 2 -type d -name .git); do
+  PROJ=$(dirname $GIT)
+  echo ---------------------------------------------------------------------------------
+  echo $PROJ:
+  echo ---------------------------------------------------------------------------------
+  cd $GIT/.. && git $@
+  cd $CWD
+  echo
+done
