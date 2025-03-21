@@ -1,12 +1,32 @@
 #!/bin/bash
 
+set -e  # Exit immediately if a command exits with a non-zero status
+
 CWD=$(pwd)
 
-echo ---------------------------------------------------------------------------------
-for GIT in $(find ./*/ -maxdepth 1 -type d -name .git); do
-  PROJ=$(dirname $GIT)
-  echo $PROJ:
-  cd $GIT/.. && git $@
-  echo ---------------------------------------------------------------------------------
-  cd $CWD
-done
+if [ "$#" -eq 0 ]; then
+  echo "No arguments provided. Please specify git command to run."
+  exit 1
+fi
+
+# Set GIT_PAGER to cat to output directly to stdout
+export GIT_PAGER=cat
+
+echo "---------------------------------------------------------------------------------"
+
+# Check if current directory is a git repository
+if [ -d .git ]; then
+  echo "$CWD:"
+  git "$@"
+  echo "---------------------------------------------------------------------------------"
+else
+  # If not, search for git repositories in subdirectories
+  for GIT in $(find ./*/ -maxdepth 1 -type d -name .git); do
+    PROJ=$(dirname "$GIT")
+    echo "$PROJ:"
+    (
+      cd "$GIT/.." && git "$@"
+    )
+    echo "---------------------------------------------------------------------------------"
+  done
+fi
