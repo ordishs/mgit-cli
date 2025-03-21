@@ -1,17 +1,17 @@
-# mgit
+# mgit-cli
 Multi git. Run git command on all git sub folders.
 
 Installation
 ------------
 ```
-$ (sudo) npm install mgit -g
+$ (sudo) npm install -g mgit-cli
 ```
 
 Usage
 -----
 ```
-$ mgit
+$ mgit-cli
 
 Usage:
-  mgit <standard git arguments>
+  mgit-cli <standard git arguments>
 ```

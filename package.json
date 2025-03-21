@@ -3,11 +3,11 @@
   "version": "1.0.1",
   "description": "Multi git. Run git command on all git sub folders.",
   "bin": {
-    "mgit": "./bin/mgit"
+    "mgit-cli": "./bin/mgit-cli"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ordishs/mgit.git"
+    "url": "git+https://github.com/ordishs/mgit-cli.git"
   },
   "keywords": [
     "git"
@@ -15,7 +15,7 @@
   "author": "Simon Ordish <simon.ordish@masagi.co.uk> (http://masa.gi)",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/ordishs/mgit/issues"
+    "url": "https://github.com/ordishs/mgit-cli/issues"
   },
-  "homepage": "https://github.com/ordishs/mgit#readme"
+  "homepage": "https://github.com/ordishs/mgit-cli#readme"
 }
