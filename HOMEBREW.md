@@ -4,11 +4,7 @@ git tag v1.0.0
 
 git push --tags
 
-cd bin
-
-git archive --format=tar.gz --output=../mgit-cli-1.0.0.tar.gz v1.0.0 mgit-cli 
-
-cd ..
+git archive --format=tar.gz --output=mgit-cli-1.0.0.tar.gz v1.0.0 mgit-cli 
 
 gh release create v1.0.0 mgit-cli-1.0.0.tar.gz --title "mgit-cli 1.0.0" --notes "Latest release of mgit-cli."
 
@@ -21,4 +17,5 @@ Edit mgit-cli.rb in github.com/ordishs/homebrew-mgit-cli to update tar name and 
 brew tap ordishs/mgit-cli
 brew install mgit-cli
 
-
+brew update
+brew upgrade mgit-cli
